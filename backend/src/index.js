@@ -1,7 +1,7 @@
 // Importando o pacote express para manipular as rotas
 const express = require('express');  // Importa um pacote
 // Importando o pacote cors para controlar o acesso à aplicação
-const express = require('cors');  // Importa um pacote
+const cors = require('cors');  // Importa um pacote
 // Importando as rotas (exportadas pelo arquivo routes.js)
 const routes = require('./routes'); // Importa um arquivo, por isso, tem o caminho ./
 
@@ -11,15 +11,14 @@ const app = express();
 // Define que o padrão de formato de dados das requisições é JSON
 app.use(express.json());
 
-// Define que a aplicação vai utilizar as rotas definidas/importadas
-app.use(routes);
-
 // Define quais domínios podem acessar a aplicação
 app.use(cors());
 
-// Utiliza a porta 3333
-app.listen(3333);
+// Define que a aplicação vai utilizar as rotas definidas/importadas
+app.use(routes);
 
+// Utiliza a porta 3000
+app.listen(3333);
 
 // Definindo as rotas da aplicação
 /*
