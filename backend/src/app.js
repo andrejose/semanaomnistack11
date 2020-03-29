@@ -4,6 +4,8 @@ const express = require('express');  // Importa um pacote
 const cors = require('cors');  // Importa um pacote
 // Importando as rotas (exportadas pelo arquivo routes.js)
 const routes = require('./routes'); // Importa um arquivo, por isso, tem o caminho ./
+// Importando o pacote de validação
+const { errors }= require('celebrate');  // Importa um pacote
 
 // Criando a aplicação
 const app = express();
@@ -17,8 +19,12 @@ app.use(cors());
 // Define que a aplicação vai utilizar as rotas definidas/importadas
 app.use(routes);
 
+// Define que a aplicação deve utilizar o pacote de validação
+app.use(errors());
+
 // Utiliza a porta 3000
-app.listen(3333);
+// app.listen(3333);
+module.exports = app;
 
 // Definindo as rotas da aplicação
 /*

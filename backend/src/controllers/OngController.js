@@ -1,5 +1,5 @@
 // Importa um pacote para criar strings aleatórias
-const crypto = require('crypto');
+const generateUniqueId = require('../utils/generateUniqueId');
 
 // Importa a conexão com o banco de dados
 const connection = require('../database/connection');
@@ -25,7 +25,7 @@ module.exports = {
         const { name, email, whatsapp, city, uf } = request.body;
 
         // Cria uma string aleatória para a id da ONG
-        const id = crypto.randomBytes(4).toString('HEX'); 
+        const id = generateUniqueId(); 
         
         // Insere os dados no banco
         // await --> define que o insert deve ser completado para o prosseguimento do script
